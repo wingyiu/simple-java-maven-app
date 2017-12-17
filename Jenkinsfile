@@ -1,6 +1,8 @@
 pipeline {
   agent any
+  
   stages {
+    
     stage('build') {
       steps {
         withMaven(
@@ -8,7 +10,6 @@ pipeline {
             mavenLocalRepo: '.repository') {
                 sh 'mvn -B -DskipTests clean package'
           }
-        )
       }
     }
   }
